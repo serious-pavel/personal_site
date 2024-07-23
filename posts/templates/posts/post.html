@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ blog_post.title|title }}{% endblock title %}
+{% block content %}
+    <h1>{{ blog_post.title|upper }}</h1>
+        <div class="post-header">
+            <div class="post-header">
+                <img src="{% if blog_post.author.image %}{{ blog_post.author.image.url }}
+                            {% else %}
+                            {% static '/img/download-smiley.png' %}{% endif %}" alt="" class="author-img">
+
+                <div class="post-info">
+                    <div class="author-name">{{ blog_post.author }}</div>
+                    <div class="post-date">{{ blog_post.date_created|date }}</div>
+                </div>
+            </div>
+            <div class="post-tags">
+                {% for tag in blog_post.tags.all %}
+                    <div class="tag">
+                        {{ tag.caption }}
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    <div>
+        <img alt="" class="floated-picture" src={{ blog_post.image.url }}>
+        <p>{{ blog_post.content|safe }}</p>
+{#        <p>{% lorem 5 p %}</p>#}
+    </div>
+
+{% endblock content %}

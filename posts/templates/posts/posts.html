@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{%  load static %}
+
+{% block title %}All Posts{% endblock title %}
+{% block content %}
+    All Posts:
+
+    {% for blog_post in blog_posts %}
+        <div class="article-block">
+            <img alt="" width="50" src={{ blog_post.image.url }}>
+
+            <div class="text">
+                <h3><a href="{% url 'post' blog_post.slug %}">{{ blog_post.title }}</a></h3>
+                <p>{{ blog_post.excerpt|truncatewords:50|safe }}
+            </div>
+        </div>
+    {% endfor %}
+    <p></p>
+    <details>
+        <summary>Old python posts</summary>
+        {% for article_slug, article in articles.items %}
+            <div class="article-block">
+                {% with image_path="img/"|add:article.picture %}
+                    <img alt="" width="50" src={% static image_path %}>
+                {% endwith %}
+                <div class="text">
+                    <h3><a href="{% url 'post_old' article_slug %}">{{ article.article }}</a></h3>
+                    <p>{{ article.text|truncatewords_html:50|safe }}
+                </div>
+            </div>
+        {% endfor %}
+    </details>
+{% endblock content %}

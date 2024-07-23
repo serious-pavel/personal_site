@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/custom_style.css' %}">
+
+    <title>{% block title %}{% endblock title%}</title>
+</head>
+<body>
+    <header>
+
+    </header>
+    <div class="article">
+{#    <div class="inner-article">#}
+    {% block content %}
+
+    {% endblock content %}
+{#    </div>#}
+    </div>
+</body>
+</html>

@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block title %}Main{% endblock title %}
+{% block content %}
+    <h1>This is my Site</h1>
+    <p>Recent post (<a href="{% url 'posts' %}">all posts</a>):
+    {% for post in recent_blog_posts %}
+        <li><a href="{% url 'post' post.slug %}">{{ post.title }}</a> - {{ post.excerpt|truncatewords:10|safe }}</li>
+    {% endfor %}
+{% endblock content %}
