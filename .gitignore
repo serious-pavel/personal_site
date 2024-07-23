@@ -1,6 +1,6 @@
 .idea/
 venv/
 *.sqlite3
-static/
+static_root/
 .env
 media/
