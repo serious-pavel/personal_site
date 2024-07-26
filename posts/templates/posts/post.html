@@ -6,12 +6,14 @@
     <h1>{{ blog_post.title|upper }}</h1>
         <div class="post-header">
             <div class="post-header">
-                <img src="{% if blog_post.author.image %}{{ blog_post.author.image.url }}
-                            {% else %}
-                            {% static '/posts/img/default_author.png' %}{% endif %}" alt="" class="author-img">
+                <img src="{% if blog_post.author.image %}
+                            {{ blog_post.author.image.url }}
+                          {% else %}
+                            {% static '/posts/img/default_author.png' %}
+                          {% endif %}" alt="" class="post-author-image">
 
                 <div class="post-info">
-                    <div class="author-name">{{ blog_post.author }}</div>
+                    <div class="post-author-name">{{ blog_post.author }}</div>
                     <div class="post-date">{{ blog_post.date_created|date }}</div>
                 </div>
             </div>
@@ -24,9 +26,8 @@
             </div>
         </div>
     <div>
-        <img alt="" class="floated-picture" src={{ blog_post.image.url }}>
+        <img alt="" class="post-image" src={{ blog_post.image.url }}>
         <p>{{ blog_post.content|safe }}</p>
-{#        <p>{% lorem 5 p %}</p>#}
     </div>
 
 {% endblock content %}
