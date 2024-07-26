@@ -1,0 +1,17 @@
+.article-block {
+  display: flex;
+  flex-direction: row;
+  margin: 5px 0;
+  background-color: rgb(255 255 255 / 50%);
+  height: 200px;
+}
+
+.article-block img {
+  width: 200px;
+  padding-right: 20px;
+}
+
+.text {
+  overflow: hidden;
+  margin-bottom: 15px;
+}
