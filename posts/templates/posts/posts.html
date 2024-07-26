@@ -9,10 +9,10 @@
 {% block content %}
     All Posts:
     {% for blog_post in blog_posts %}
-        <div class="article-block">
+        <div class="post-preview-block">
             <img alt="" width="50" src={{ blog_post.image.url }}>
 
-            <div class="text">
+            <div class="post-preview-excerpt">
                 <h3><a href="{% url 'post' blog_post.slug %}">{{ blog_post.title }}</a></h3>
                 <p>{{ blog_post.excerpt|truncatewords:50|safe }}
             </div>

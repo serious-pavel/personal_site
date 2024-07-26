@@ -1,4 +1,4 @@
-.article-block {
+.post-preview-block {
   display: flex;
   flex-direction: row;
   margin: 5px 0;
@@ -6,12 +6,12 @@
   height: 200px;
 }
 
-.article-block img {
+.post-preview-block img {
   width: 200px;
   padding-right: 20px;
 }
 
-.text {
+.post-preview-excerpt {
   overflow: hidden;
   margin-bottom: 15px;
 }
