@@ -5,19 +5,17 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="{% static 'css/custom_style.css' %}">
-
+    {% block links %}
+    {% endblock links %}
     <title>{% block title %}{% endblock title%}</title>
 </head>
 <body>
     <header>
 
     </header>
-    <div class="article">
-{#    <div class="inner-article">#}
-    {% block content %}
-
-    {% endblock content %}
-{#    </div>#}
+    <div class="content">
+        {% block content %}
+        {% endblock content %}
     </div>
 </body>
 </html>

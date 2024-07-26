@@ -20,7 +20,7 @@ body {
   position: relative;
 }
 
-.article {
+.content {
   margin: auto;
   min-height: calc(100% - 40px);
   width: 80%;
