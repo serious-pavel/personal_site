@@ -1,0 +1,48 @@
+.post-header {
+  justify-content: space-between;
+}
+
+.post-header,
+.post-tags {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+
+.post-image {
+  float: left;
+  width: 400px;
+  padding-right: 20px;
+}
+
+.post-author-image {
+  width:50px;
+  height:50px;
+  border-radius:50%;
+  overflow:hidden;
+  margin-right: 20px;
+}
+
+.post-info {
+  margin-right: 20px;
+}
+
+.post-date {
+  font-style: italic;
+  font-size: 0.8em;
+}
+
+.post-author-name {
+  font-weight: 750;
+  font-size: 1.1rem;
+  margin-bottom: -5px;
+}
+
+.post-tags .tag {
+  padding: 5px;
+  margin: 0 3px;
+  background-color: #4ac1f7;
+  border-radius: 7px;
+  font-weight: 600;
+  color: #ffffff;
+}
