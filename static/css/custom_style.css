@@ -21,9 +21,58 @@ body {
 }
 
 .content {
-  margin: auto;
-  min-height: calc(100% - 40px);
-  width: 80%;
-  padding: 20px;
+  height: calc(100% - 50px);
+  width: 100%;
   background-color: #ececec;
+  overflow: auto;
+  box-sizing: border-box;
+}
+
+.content-block {
+  width: 80%;
+  margin: auto;
+  background-color: #b1ddf1;
+  padding: 20px;
+}
+
+.header {
+    color: whitesmoke;
+    background-color: steelblue;
+    align-items: center;
+}
+
+.header {
+    height: 50px;
+    display: flex;
+    padding: 0 30px;
+    justify-content: space-between;
+}
+
+.header-left {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+    font-size: 15px;
+}
+
+.header a {
+    text-decoration: none;
+    color: #eaeaea;
+    margin: 0 7px;
+}
+
+.header a.nav-active {
+    color: white;
+    font-weight: 600;
+}
+
+.header-logo {
+    color: white;
+    font-weight: 600;
 }

@@ -4,18 +4,33 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="shortcut icon" href="{% static 'img/post-sign-message-svgrepo-com.svg' %}" sizes="any">
     <link rel="stylesheet" href="{% static 'css/custom_style.css' %}">
     {% block links %}
     {% endblock links %}
     <title>{% block title %}{% endblock title%}</title>
 </head>
 <body>
-    <header>
-
-    </header>
+    <div class="header">
+        <div class="header-left">
+            <a href="/" class="header-logo"><img src="{% static 'img/post-sign-message-svgrepo-com-light.svg' %}" height="35" alt="" loading="lazy"></a>
+            <a href="/posts" {% if request.resolver_match.url_name == 'posts' %}class="nav-active"{% endif %}>
+                Posts</a>
+            <a href="/saved" {% if request.resolver_match.url_name == 'saved' %}class="nav-active"{% endif %}>
+                Read later</a>
+        </div>
+        <div class="header-right">
+            {% block header-filter %}
+            {% endblock %}
+        </div>
+    </div>
     <div class="content">
-        {% block content %}
-        {% endblock content %}
+        <div class="content-block">
+{#        <div class="content-inner">#}
+            {% block content %}
+            {% endblock content %}
+{#        </div>#}
+        </div>
     </div>
 </body>
 </html>
