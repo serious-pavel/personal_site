@@ -18,3 +18,7 @@ def posts(request):
 def post(request, slug):
     blog_post = get_object_or_404(Post, slug=slug)
     return render(request, 'posts/post.html', {'blog_post': blog_post, })
+
+
+def read_later(request):
+    return render(request, 'posts/read_later.html')

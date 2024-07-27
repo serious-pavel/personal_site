@@ -16,7 +16,7 @@
             <a href="/" class="header-logo"><img src="{% static 'img/post-sign-message-svgrepo-com-light.svg' %}" height="35" alt="" loading="lazy"></a>
             <a href="/posts" {% if request.resolver_match.url_name == 'posts' %}class="nav-active"{% endif %}>
                 Posts</a>
-            <a href="/saved" {% if request.resolver_match.url_name == 'saved' %}class="nav-active"{% endif %}>
+            <a href="/posts/read-later/" {% if request.resolver_match.url_name == 'read_later' %}class="nav-active"{% endif %}>
                 Read later</a>
         </div>
         <div class="header-right">
