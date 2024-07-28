@@ -20,14 +20,14 @@ body {
   position: relative;
 }
 
-.content {
+.content-main {
   height: calc(100% - 50px);
   width: 100%;
   background-color: #ececec;
   overflow: auto;
 }
 
-.content-block {
+.content-nested {
   width: 80%;
   margin: auto;
   background-color: #b1ddf1;
