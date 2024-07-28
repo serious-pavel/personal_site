@@ -66,11 +66,11 @@ body {
 }
 
 .header-left a:not(:last-child) {
-  margin: 0 16px 0 0;
+  margin-right: 16px;
 }
 
 .header-right a:not(:last-child) {
-  margin: 0 0 0 16px;
+  margin-left: 16px;
 }
 
 .header a.nav-active {
