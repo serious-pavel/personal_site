@@ -40,9 +40,6 @@ body {
     color: whitesmoke;
     background-color: steelblue;
     align-items: center;
-}
-
-.header {
     height: 50px;
     display: flex;
     padding: 0 30px;
@@ -63,9 +60,17 @@ body {
 }
 
 .header a {
+  word-spacing: -5px;
     text-decoration: none;
     color: #eaeaea;
-    margin: 0 7px;
+}
+
+.header-left a:not(:last-child) {
+      margin: 0 16px 0 0;
+}
+
+.header-right a:not(:last-child) {
+      margin: 0 0 0 16px;
 }
 
 .header a.nav-active {
