@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .models import Post
 from django.shortcuts import get_object_or_404
+from .forms import CommentForm
 
 # Create your views here.
 
@@ -17,7 +18,8 @@ def posts(request):
 
 def post(request, slug):
     blog_post = get_object_or_404(Post, slug=slug)
-    return render(request, 'posts/post.html', {'blog_post': blog_post, })
+    form = CommentForm(request.POST or None)
+    return render(request, 'posts/post.html', {'blog_post': blog_post, 'form': form,})
 
 
 def read_later(request):
