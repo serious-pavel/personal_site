@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Post, Comment
 from django.shortcuts import get_object_or_404
 from .forms import CommentForm
@@ -19,16 +19,14 @@ def posts(request):
 def post(request, slug):
     blog_post = get_object_or_404(Post, slug=slug)
     comment = Comment.objects.create(post=blog_post)
+    form = CommentForm(request.POST or None, instance=comment)
 
     if request.method == 'POST':
-        form = CommentForm(request.POST or None, instance=comment)
         if form.is_valid():
             form.save()
-        return render(request, 'posts/post.html', {'blog_post': blog_post, 'form': form, })
+            return redirect('post', slug=slug)
 
-    if request.method == 'GET':
-        form = CommentForm(instance=comment)
-        return render(request, 'posts/post.html', {'blog_post': blog_post, 'form': form, })
+    return render(request, 'posts/post.html', {'blog_post': blog_post, 'form': form, })
 
 
 def read_later(request):
