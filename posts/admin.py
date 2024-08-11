@@ -26,5 +26,5 @@ class TagAdmin(admin.ModelAdmin):
 
 @admin.register(Comment)
 class CommentAdmin(admin.ModelAdmin):
-    list_display = ['post', 'comment_author', ]
-    list_filter = ['post', 'comment_author',]
+    list_display = ['post', 'comment_author', 'date_created']
+    list_filter = ['post', 'comment_author', 'date_created']
