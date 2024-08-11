@@ -18,7 +18,7 @@ def posts(request):
 
 def post(request, slug):
     blog_post = get_object_or_404(Post, slug=slug)
-    comment = Comment.objects.create(post=blog_post)
+    comment = Comment(post=blog_post)
     form = CommentForm(request.POST or None, instance=comment)
 
     if request.method == 'POST':
