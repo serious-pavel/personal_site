@@ -7,40 +7,42 @@
 
 {% block title %}{{ blog_post.title|title }}{% endblock title %}
 {% block content %}
-    <h1>{{ blog_post.title|upper }}</h1>
-    <div class="post-header">
+    <div class="post-section">
+        <h1>{{ blog_post.title|upper }}</h1>
         <div class="post-header">
-            <img src="{% if blog_post.author.image %}
-                        {{ blog_post.author.image.url }}
-                      {% else %}
-                        {% static '/posts/img/default_author.png' %}
-                      {% endif %}" alt="" class="post-author-image">
-
-            <div class="post-info">
-                <div class="post-author-name">{{ blog_post.author }}</div>
-                <div class="post-date">{{ blog_post.date_created|date }}</div>
+            <div class="post-header">
+                <img src="{% if blog_post.author.image %}
+                            {{ blog_post.author.image.url }}
+                          {% else %}
+                            {% static '/posts/img/default_author.png' %}
+                          {% endif %}" alt="" class="post-author-image">
+    
+                <div class="post-info">
+                    <div class="post-author-name">{{ blog_post.author }}</div>
+                    <div class="post-date">{{ blog_post.date_created|date }}</div>
+                </div>
+            </div>
+            <div class="post-tags">
+                {% for tag in blog_post.tags.all %}
+                    <div class="tag">
+                        {{ tag.caption }}
+                    </div>
+                {% endfor %}
             </div>
         </div>
-        <div class="post-tags">
-            {% for tag in blog_post.tags.all %}
-                <div class="tag">
-                    {{ tag.caption }}
-                </div>
-            {% endfor %}
+        <div class="post-body">
+            <img alt="" class="post-image" src={{ blog_post.image.url }}>
+            <p>{{ blog_post.content|safe }}</p>
         </div>
     </div>
-    <div class="post-body">
-        <img alt="" class="post-image" src={{ blog_post.image.url }}>
-        <p>{{ blog_post.content|safe }}</p>
-    </div>
-    <div class="comments">
-        <div class="old-comments">
+    <div class="comments-section">
+        <div class="comments">
             {% for comment in blog_post.comments.all %}
-                <div class="old-comment-author">{{ comment.comment_author }}</div>
-                <div class="old-comment-content">{{ comment.comment_content }}</div>
+                <div class="comment-author">{{ comment.comment_author }}</div>
+                <div class="comment-content">{{ comment.comment_content }}</div>
             {% endfor %}
         </div>
-        <div class="new-comment">
+        <div class="leave-comment">
         <form action="{{ request.path }}" method="POST">
             {% csrf_token %}
             {{ form }}
