@@ -45,3 +45,6 @@ class Comment(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='comments')
     comment_author = models.CharField(max_length=50)
     comment_content = models.TextField()
+
+    def __str__(self):
+        return f'{self.post} {self.comment_author} {self.comment_content}'
