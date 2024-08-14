@@ -46,3 +46,7 @@
   font-weight: 600;
   color: #ffffff;
 }
+
+.post-section {
+  min-height: 540px;
+}
