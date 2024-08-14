@@ -34,6 +34,7 @@ body {
   padding: 20px;
   box-sizing: border-box; /* to count padding outside, don't need to  */
   min-height: 100%; /* calc(100% - 40px) for 2 paddings by 20px */
+  min-width: 240px;
 }
 
 .header {
