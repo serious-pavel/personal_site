@@ -37,10 +37,11 @@
     </div>
     <div class="comments-section">
         <div class="leave-comment">
-            <form action="{{ request.path }}" method="POST">
+            <form action="{{ request.path }}" method="POST" class="leave-comment-form">
                 {% csrf_token %}
-                {{ form }}
+                {{ form.comment_author }}
                 <button type="submit">Leave a Comment</button>
+                {{ form.comment_content }}
             </form>
         </div>
             <div class="comments">
