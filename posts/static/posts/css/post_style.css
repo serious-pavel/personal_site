@@ -59,4 +59,9 @@
   margin: auto;
 }
 
-
+textarea#id_comment_content {
+    max-width: 600px;
+    min-width: 200px;
+    height: 100px;
+    width: 95%;
+}
