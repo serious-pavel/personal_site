@@ -50,3 +50,13 @@
 .post-section {
   min-height: 540px;
 }
+
+.leave-comment {
+  text-align: center;
+}
+
+.leave-comment-form {
+  margin: auto;
+}
+
+
