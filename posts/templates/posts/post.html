@@ -36,19 +36,19 @@
         </div>
     </div>
     <div class="comments-section">
-        <div class="comments">
+        <div class="leave-comment">
+            <form action="{{ request.path }}" method="POST">
+                {% csrf_token %}
+                {{ form }}
+                <button type="submit">Leave a Comment</button>
+            </form>
+        </div>
+            <div class="comments">
             {% for comment in blog_post.comments.all %}
                 <div class="comment-author">{{ comment.comment_author }}</div>
                 <div class="comment-date">{{ comment.date_created }}</div>
                 <div class="comment-content">{{ comment.comment_content }}</div>
             {% endfor %}
-        </div>
-        <div class="leave-comment">
-        <form action="{{ request.path }}" method="POST">
-            {% csrf_token %}
-            {{ form }}
-            <button type="submit">Leave a Comment</button>
-        </form>
         </div>
     </div>
 {% endblock content %}
