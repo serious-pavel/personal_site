@@ -39,6 +39,7 @@
         <div class="comments">
             {% for comment in blog_post.comments.all %}
                 <div class="comment-author">{{ comment.comment_author }}</div>
+                <div class="comment-date">{{ comment.date_created }}</div>
                 <div class="comment-content">{{ comment.comment_content }}</div>
             {% endfor %}
         </div>
