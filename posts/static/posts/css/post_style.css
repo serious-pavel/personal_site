@@ -68,3 +68,15 @@ textarea#id_comment_content {
     height: 100px;
     width: 95%;
 }
+
+input#id_comment_author {
+    width: 143px;
+    min-width: 125px;
+    height: 25px;
+}
+
+.leave-comment-button {
+    width: 150px;
+    min-width: 125px;
+    height: 30px;
+}
