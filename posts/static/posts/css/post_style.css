@@ -76,6 +76,7 @@ textarea#id_comment_content {
   border-width: 2px;
   border-color: #80b5e4;
   border-radius: 5px;
+  resize: none;
 }
 
 input#id_comment_author {
@@ -108,7 +109,7 @@ input#id_comment_author {
   background-color: #113e54;
 }
 
-textarea#id_comment_content:focus
+textarea#id_comment_content:focus,
 input#id_comment_author:focus {
   outline: none !important;
   border:2px solid #4498c3;
