@@ -64,25 +64,53 @@
 }
 
 .leave-comment-form-bottom {
-    max-width: 95%;
-    margin: auto;
+  max-width: 95%;
+  margin: auto;
 }
 
 textarea#id_comment_content {
-    max-width: 600px;
-    min-width: 200px;
-    height: 100px;
-    width: 95%;
+  max-width: 600px;
+  min-width: 200px;
+  height: 100px;
+  width: 95%;
+  border-width: 2px;
+  border-color: #80b5e4;
+  border-radius: 5px;
 }
 
 input#id_comment_author {
-    width: 143px;
-    min-width: 125px;
-    height: 25px;
+  width: 143px;
+  min-width: 125px;
+  height: 25px;
+  border-width: 2px;
+  border-color: #8bbed6;
+  border-radius: 5px;
 }
 
 .leave-comment-button {
-    width: 150px;
-    min-width: 125px;
-    height: 30px;
+  width: 150px;
+  min-width: 125px;
+  height: 30px;
+  border-radius: 8px;
+  border-width: 1px;
+  background-color: #2a617d;
+  color: #cee9ff;
+  font-size: 0.85rem;
+  font-weight: bold;
+}
+
+.leave-comment-button:hover {
+  background-color: #4498c3;
+  border-color: #1b4e67;
+}
+
+.leave-comment-button:active {
+  background-color: #113e54;
+}
+
+textarea#id_comment_content:focus
+input#id_comment_author:focus {
+  outline: none !important;
+  border:2px solid #4498c3;
+  box-shadow: 0 0 5px #719ECE;
 }
