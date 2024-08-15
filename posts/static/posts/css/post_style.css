@@ -59,7 +59,13 @@
 }
 
 .leave-comment-form {
-  margin: auto;
+  /*margin: auto;*/
+  margin-bottom: 10px;
+}
+
+.leave-comment-form-bottom {
+    max-width: 95%;
+    margin: auto;
 }
 
 textarea#id_comment_content {
