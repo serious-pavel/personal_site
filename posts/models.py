@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils.text import slugify
+import humanize
 
 # Create your models here.
 
@@ -49,3 +50,7 @@ class Comment(models.Model):
 
     def __str__(self):
         return f'{self.post} {self.comment_author} {self.comment_content}'
+
+    @property
+    def humanized_td(self):
+        return humanize.naturaltime(self.date_created)
