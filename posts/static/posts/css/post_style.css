@@ -130,6 +130,7 @@ input#id_comment_author:focus {
   margin-bottom: 9px;
 }
 
+.post-body p,
 .comment-content {
   white-space: pre-line;
 }
