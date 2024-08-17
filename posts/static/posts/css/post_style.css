@@ -119,7 +119,7 @@ input#id_comment_author:focus {
 .comment {
   background-color: #ecf7ff3d;
   border-radius: 5px;
-  padding: 5px;
+  padding: 10px;
   box-sizing: border-box;
   width: 95%;
   max-width: 600px;
@@ -133,4 +133,25 @@ input#id_comment_author:focus {
 .post-body p,
 .comment-content {
   white-space: pre-line;
+}
+
+.comment-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.comment-author {
+  font-weight: 600;
+  font-size: 1.1em;
+}
+
+.comment-date {
+  font-style: italic;
+  font-size: small;
+}
+
+.comment-content {
+  font-size: smaller;
 }
