@@ -116,7 +116,6 @@ input#id_comment_author:focus {
   box-shadow: 0 0 5px #719ECE;
 }
 
-
 .comment {
   background-color: #ecf7ff3d;
   border-radius: 5px;
@@ -129,4 +128,8 @@ input#id_comment_author:focus {
 
 .comment:not(:last-child) {
   margin-bottom: 9px;
+}
+
+.comment-content {
+  white-space: pre-line;
 }

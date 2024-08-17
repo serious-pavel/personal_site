@@ -53,7 +53,7 @@
                         <div class="comment-author">{{ comment.comment_author }}</div>
                         <div class="comment-date">{{ comment.humanized_td }}</div>
                     </div>
-                    <div class="comment-content">{{ comment.comment_content }}</div>
+                    <div class="comment-content">{{ comment.comment_content|safe }}</div>
                 </div>
             {% endfor %}
         </div>
