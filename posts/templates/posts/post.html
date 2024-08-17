@@ -48,9 +48,13 @@
         </div>
             <div class="comments">
             {% for comment in blog_post.comments.all|dictsortreversed:"date_created" %}
-                <div class="comment-author">{{ comment.comment_author }}</div>
-                <div class="comment-date">{{ comment.humanized_td }}</div>
-                <div class="comment-content">{{ comment.comment_content }}</div>
+                <div class="comment">
+                    <div class="comment-meta">
+                        <div class="comment-author">{{ comment.comment_author }}</div>
+                        <div class="comment-date">{{ comment.humanized_td }}</div>
+                    </div>
+                    <div class="comment-content">{{ comment.comment_content }}</div>
+                </div>
             {% endfor %}
         </div>
     </div>

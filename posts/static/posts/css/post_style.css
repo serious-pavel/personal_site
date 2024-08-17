@@ -115,3 +115,18 @@ input#id_comment_author:focus {
   border:2px solid #4498c3;
   box-shadow: 0 0 5px #719ECE;
 }
+
+
+.comment {
+  background-color: #ecf7ff3d;
+  border-radius: 5px;
+  padding: 5px;
+  box-sizing: border-box;
+  width: 95%;
+  max-width: 600px;
+  margin: auto;
+}
+
+.comment:not(:last-child) {
+  margin-bottom: 9px;
+}
