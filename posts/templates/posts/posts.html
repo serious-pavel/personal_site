@@ -7,7 +7,7 @@
 
 {% block title %}All Posts{% endblock title %}
 {% block content %}
-    All Posts:
+    <h1>ALL POSTS</h1>
     {% for blog_post in blog_posts %}
         <div class="post-preview-block">
             <img alt="" width="50" src={{ blog_post.image.url }}>
