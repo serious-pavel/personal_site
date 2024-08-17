@@ -1,14 +1,19 @@
 .post-preview-block {
   display: flex;
   flex-direction: row;
-  margin: 5px 0;
   background-color: rgb(255 255 255 / 50%);
   height: 200px;
+  border-radius: 15px;
+}
+
+.post-preview-block:not(:last-child) {
+  margin-bottom: 10px;
 }
 
 .post-preview-block img {
   width: 200px;
   padding-right: 20px;
+  border-radius: 15px 0 0 15px;
 }
 
 .post-preview-excerpt {
