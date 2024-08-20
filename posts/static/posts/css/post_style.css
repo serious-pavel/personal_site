@@ -157,3 +157,28 @@ input#id_comment_author:focus {
 .comment-content {
   font-size: smaller;
 }
+
+.container-button {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+  background-size: 35px 35px;
+  width: 35px;
+  height: 35px;
+}
+
+.container-button {
+  background-image: url("../img/book-svgrepo-com.svg");
+}
+
+.container-button:hover {
+  background-image: url("../img/book-minus-svgrepo-com.svg");
+}
+
+.container-button:active {
+  background-image: url("../img/book-minus-svgrepo-com-active.svg");
+}
