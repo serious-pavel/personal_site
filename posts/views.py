@@ -21,12 +21,26 @@ def post(request, slug):
     comment = Comment(post=blog_post)
     form = CommentForm(request.POST or None, instance=comment)
 
+    read_later_posts = request.session.get("read_later_posts", [])
+
     if request.method == 'POST':
+        remove_id = request.POST.get('remove_id')
+        add_id = request.POST.get('add_id')
+
+        if add_id:
+            read_later_posts.append(add_id)
+            request.session['read_later_posts'] = read_later_posts
+
+        if remove_id:
+            read_later_posts.remove(remove_id)
+            request.session['read_later_posts'] = read_later_posts
+
         if form.is_valid():
             form.save()
-            return redirect('post', slug=slug)
 
-    return render(request, 'posts/post.html', {'blog_post': blog_post, 'form': form, })
+        return redirect('post', slug=slug)
+
+    return render(request, 'posts/post.html', {'blog_post': blog_post, 'form': form, 'read_later_posts': read_later_posts})
 
 
 def read_later(request):
