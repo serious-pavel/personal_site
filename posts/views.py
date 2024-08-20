@@ -16,6 +16,11 @@ def posts(request):
     return render(request, 'posts/posts.html', context={'blog_posts': blog_posts})
 
 
+def read_later(request):
+    blog_posts = Post.objects.filter(id__in=request.session.get("read_later_posts", []))
+    return render(request, 'posts/posts.html', context={'blog_posts': blog_posts, 'header': 'Read Later'})
+
+
 def post(request, slug):
     blog_post = get_object_or_404(Post, slug=slug)
     comment = Comment(post=blog_post)
@@ -42,6 +47,3 @@ def post(request, slug):
 
     return render(request, 'posts/post.html', {'blog_post': blog_post, 'form': form, 'read_later_posts': read_later_posts})
 
-
-def read_later(request):
-    return render(request, 'posts/read_later.html')
