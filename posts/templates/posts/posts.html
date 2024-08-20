@@ -5,9 +5,22 @@
     <link rel="stylesheet" href="{% static 'posts/css/posts_style.css' %}">
 {% endblock links %}
 
-{% block title %}All Posts{% endblock title %}
+{% block title %}
+    {% if header %}
+        {{ header }}
+    {% else %}
+        All Posts
+    {% endif %}
+{% endblock title %}
+
 {% block content %}
-    <h1>ALL POSTS</h1>
+    <h1>
+        {% if header %}
+            {{ header|upper }}
+        {% else %}
+            ALL POSTS
+        {% endif %}
+    </h1>
     {% for blog_post in blog_posts %}
         <div class="post-preview-block">
             <img alt="" width="50" src={{ blog_post.image.url }}>
