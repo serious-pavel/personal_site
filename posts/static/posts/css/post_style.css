@@ -171,14 +171,26 @@ input#id_comment_author:focus {
   height: 35px;
 }
 
-.container-button {
+.container-button-remove {
   background-image: url("../img/book-svgrepo-com.svg");
 }
 
-.container-button:hover {
+.container-button-remove:hover {
   background-image: url("../img/book-minus-svgrepo-com.svg");
 }
 
-.container-button:active {
+.container-button-remove:active {
   background-image: url("../img/book-minus-svgrepo-com-active.svg");
+}
+
+.container-button-add {
+  background-image: url("../img/book-line-svgrepo-com.svg");
+}
+
+.container-button-add:hover {
+  background-image: url("../img/book-plus-line-svgrepo-com.svg");
+}
+
+.container-button-add:active {
+  background-image: url("../img/book-plus-line-svgrepo-com-active.svg");
 }
