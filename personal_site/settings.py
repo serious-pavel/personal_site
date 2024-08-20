@@ -136,3 +136,6 @@ MEDIA_URL = 'media/'
 
 MEDIA_ROOT = BASE_DIR / 'media/'
 
+# Sessions
+
+# SESSION_COOKIE_AGE = 1800
