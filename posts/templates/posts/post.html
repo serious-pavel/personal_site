@@ -12,7 +12,7 @@
         <h1>{{ blog_post.title|upper }}</h1>
         <form action="{{ request.path }}" method="post">
             {% csrf_token %}
-            <button class="container-button"></button>
+            <button class="container-button" title="remove from 'Read Later'"></button>
         </form>
     </div>
         <div class="post-header">
