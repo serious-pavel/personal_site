@@ -51,7 +51,8 @@
 }
 
 .post-section {
-  min-height: 540px;
+  min-height: 560px;
+  margin-bottom: 20px;
 }
 
 .leave-comment {
