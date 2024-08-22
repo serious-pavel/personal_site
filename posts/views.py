@@ -2,33 +2,47 @@ from django.shortcuts import render, redirect
 from .models import Post, Comment
 from django.shortcuts import get_object_or_404
 from .forms import CommentForm
+from django.views import View
+from django.views.generic import ListView, DetailView
 
 # Create your views here.
 
 
-def index(request):
-    recent_blog_posts = Post.objects.all().order_by('-date_modified')[:3]
-    return render(request, 'posts/index.html', context={'recent_blog_posts': recent_blog_posts})
+class IndexListView(ListView):
+    template_name = 'posts/index.html'
+    context_object_name = 'recent_blog_posts'
+    queryset = Post.objects.all().order_by('-date_modified')[:3]
 
 
-def posts(request):
-    blog_posts = Post.objects.all()
-    return render(request, 'posts/posts.html', context={'blog_posts': blog_posts})
+class PostsListView(ListView):
+    template_name = 'posts/posts.html'
+    context_object_name = 'blog_posts'
+    model = Post  # queryset = Post.objects.all()
 
 
-def read_later(request):
-    blog_posts = Post.objects.filter(id__in=request.session.get("read_later_posts", []))
-    return render(request, 'posts/posts.html', context={'blog_posts': blog_posts, 'header': 'Read Later'})
+class ReadLaterListView(ListView):
+    template_name = 'posts/posts.html'
+    context_object_name = 'blog_posts'
+
+    def get_queryset(self):
+        return Post.objects.filter(id__in=self.request.session.get("read_later_posts", []))
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["header"] = 'Read Later'
+        return context
 
 
-def post(request, slug):
-    blog_post = get_object_or_404(Post, slug=slug)
-    comment = Comment(post=blog_post)
-    form = CommentForm(request.POST or None, instance=comment)
+class PostView(View):
 
-    read_later_posts = request.session.get("read_later_posts", [])
+    def get(self, request, slug):
+        blog_post = get_object_or_404(Post, slug=slug)
+        form = CommentForm()
 
-    if request.method == 'POST':
+        return render(request, 'posts/post.html', {'blog_post': blog_post, 'form': form})
+
+    def post(self, request, slug):
+        read_later_posts = request.session.get("read_later_posts", [])
         remove_id = request.POST.get('remove_id')
         add_id = request.POST.get('add_id')
 
@@ -40,10 +54,12 @@ def post(request, slug):
             read_later_posts.remove(remove_id)
             request.session['read_later_posts'] = read_later_posts
 
+        blog_post = get_object_or_404(Post, slug=slug)
+
+        comment = Comment(post=blog_post)
+        form = CommentForm(request.POST, instance=comment)
+
         if form.is_valid():
             form.save()
 
         return redirect('post', slug=slug)
-
-    return render(request, 'posts/post.html', {'blog_post': blog_post, 'form': form, })
-
