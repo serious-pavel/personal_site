@@ -45,5 +45,5 @@ def post(request, slug):
 
         return redirect('post', slug=slug)
 
-    return render(request, 'posts/post.html', {'blog_post': blog_post, 'form': form, 'read_later_posts': read_later_posts})
+    return render(request, 'posts/post.html', {'blog_post': blog_post, 'form': form, })
 
