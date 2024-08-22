@@ -48,24 +48,41 @@ With the virtual environment activated, install the required packages:
 ```bash
 pip install -r requirements.txt
 ```
-### 4. Set up the database
+### 4. Set up the database (skip if you're using an existing database*)
+
 Apply the migrations to set up the database schema:
 
 ```bash
-Copy code
+# On Windows
 python manage.py migrate
+
+# On macOS/Linux
+python3 manage.py migrate
 ```
-### 5. Create a superuser
+### 5. Create a superuser (skip if you're using an existing database*)
 Create an admin account to access the Django admin panel:
 
 ```bash
+# On Windows
 python manage.py createsuperuser
+
+# On macOS/Linux
+python3 manage.py createsuperuser
 ```
 
 ### 6. Run the development server
 Start the Django development server:
 
 ```bash
+# On Windows
 python manage.py runserver
+
+# On macOS/Linux
+python3 manage.py runserver
 ```
 You can now access the project at http://127.0.0.1:8000/ in your web browser.
+
+
+### * Using an existing database
+
+Place file `db.sqlite3` in the project folder.
