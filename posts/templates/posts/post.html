@@ -12,7 +12,7 @@
         <h1>{{ blog_post.title|upper }}</h1>
         <form action="{{ request.path }}" method="post">
             {% csrf_token %}
-            {% if blog_post.id|stringformat:"i" in request.session.read_later_posts %}
+            {% if blog_post.id in request.session.read_later_posts %}
                 <input type="hidden" name="remove_id" value="{{ blog_post.id }}">
                 <button class="container-button container-button-remove" title="remove from 'Read Later'"></button>
             {% else %}

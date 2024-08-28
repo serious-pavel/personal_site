@@ -47,11 +47,11 @@ class PostView(View):
         add_id = request.POST.get('add_id')
 
         if add_id:
-            read_later_posts.append(add_id)
+            read_later_posts.append(int(add_id))
             request.session['read_later_posts'] = read_later_posts
 
         if remove_id:
-            read_later_posts.remove(remove_id)
+            read_later_posts.remove(int(remove_id))
             request.session['read_later_posts'] = read_later_posts
 
         blog_post = get_object_or_404(Post, slug=slug)
