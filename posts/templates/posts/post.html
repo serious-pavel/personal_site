@@ -9,14 +9,13 @@
 {% block content %}
     <div class="post-section">
     <div class="post-header">
-        <h1>{{ blog_post.title|upper }}</h1>
+        <h1>{{ blog_post.title|upper }} {{ request.session.read_later_posts }}</h1>
         <form action="{{ request.path }}" method="post">
             {% csrf_token %}
+            <input type="hidden" name="read_later_id" value="{{ blog_post.id }}">
             {% if blog_post.id in request.session.read_later_posts %}
-                <input type="hidden" name="remove_id" value="{{ blog_post.id }}">
                 <button class="container-button container-button-remove" title="remove from 'Read Later'"></button>
             {% else %}
-                <input type="hidden" name="add_id" value="{{ blog_post.id }}">
                 <button class="container-button container-button-add" title="add to 'Read Later'"></button>
             {% endif %}
         </form>

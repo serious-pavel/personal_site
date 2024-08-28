@@ -43,16 +43,16 @@ class PostView(View):
 
     def post(self, request, slug):
         read_later_posts = request.session.get("read_later_posts", [])
-        remove_id = request.POST.get('remove_id')
-        add_id = request.POST.get('add_id')
+        read_later_id = request.POST.get('read_later_id')
 
-        if add_id:
-            read_later_posts.append(int(add_id))
+        if read_later_id:
+            read_later_id = int(read_later_id)
+            if read_later_id in read_later_posts:
+                read_later_posts.remove(read_later_id)
+            else:
+                read_later_posts.append(read_later_id)
             request.session['read_later_posts'] = read_later_posts
-
-        if remove_id:
-            read_later_posts.remove(int(remove_id))
-            request.session['read_later_posts'] = read_later_posts
+            return redirect('post', slug=slug)
 
         blog_post = get_object_or_404(Post, slug=slug)
 
