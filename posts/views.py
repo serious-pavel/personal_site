@@ -61,5 +61,6 @@ class PostView(View):
 
         if form.is_valid():
             form.save()
+            return redirect('post', slug=slug)
 
-        return redirect('post', slug=slug)
+        return render(request, 'posts/post.html', {'blog_post': blog_post, 'form': form})

@@ -55,6 +55,9 @@
                     {{ form.comment_author }}
                     <button type="submit" class="leave-comment-button">Leave a Comment</button>
                 </div>
+                <div id="errors">
+                    {{ form.errors }}
+                </div>
             </form>
         </div>
             <div class="comments">
