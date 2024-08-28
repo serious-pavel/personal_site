@@ -9,7 +9,7 @@
 {% block content %}
     <div class="post-section">
     <div class="post-header">
-        <h1>{{ blog_post.title|upper }} {{ request.session.read_later_posts }}</h1>
+        <h1>{{ blog_post.title|upper }}</h1>
         <form action="{{ request.path }}" method="post">
             {% csrf_token %}
             <input type="hidden" name="read_later_id" value="{{ blog_post.id }}">
