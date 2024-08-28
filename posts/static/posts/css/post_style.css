@@ -90,6 +90,23 @@ input#id_comment_author {
   border-radius: 5px;
 }
 
+.invalid-form-element textarea,
+.invalid-form-element input {
+  background-color: #f8d8f1;
+}
+
+textarea#id_comment_content:focus,
+input#id_comment_author:focus {
+  outline: none !important;
+  border:2px solid #4498c3;
+  box-shadow: 0 0 5px #719ECE;
+}
+
+textarea#id_comment_content:valid,
+input#id_comment_author:valid {
+  background-color: white;
+}
+
 .leave-comment-button {
   width: 150px;
   min-width: 125px;
@@ -109,13 +126,6 @@ input#id_comment_author {
 
 .leave-comment-button:active {
   background-color: #113e54;
-}
-
-textarea#id_comment_content:focus,
-input#id_comment_author:focus {
-  outline: none !important;
-  border:2px solid #4498c3;
-  box-shadow: 0 0 5px #719ECE;
 }
 
 .comment {

@@ -50,8 +50,10 @@
         <div id="leave-comment">
             <form action="{{ request.path }}#leave-comment" method="POST" class="leave-comment-form">
                 {% csrf_token %}
-                {{ form.comment_content }}
-                <div class="leave-comment-form-bottom">
+                <div class="leave-comment-form-content {% if form.comment_content.errors %}invalid-form-element{% endif %}">
+                    {{ form.comment_content }}
+                </div>
+                <div class="leave-comment-form-bottom {% if form.comment_author.errors %}invalid-form-element{% endif %}">
                     {{ form.comment_author }}
                     <button type="submit" class="leave-comment-button">Leave a Comment</button>
                 </div>
