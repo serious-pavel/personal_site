@@ -15,8 +15,8 @@ class CommentForm(forms.ModelForm):
             }
         }
         labels = {
-            "comment_author": "Name",
-            "comment_content": "Comment",
+            "comment_author": "Your Name",
+            "comment_content": "Your Comment",
         }
         widgets = {
             "comment_author": forms.TextInput(attrs={
