@@ -55,9 +55,16 @@
                     {{ form.comment_author }}
                     <button type="submit" class="leave-comment-button">Leave a Comment</button>
                 </div>
-                <div id="errors">
-                    {{ form.errors }}
-                </div>
+                <section id="errors">
+                    {% for field in form %}
+                        {% if field.errors %}
+                            <div class="error-container">
+                                {{ field.label }}:
+                                {{ field.errors }}                            
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </section>
             </form>
         </div>
             <div class="comments">

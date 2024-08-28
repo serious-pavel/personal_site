@@ -14,6 +14,10 @@ class CommentForm(forms.ModelForm):
                 "max_length": "Please enter a shorter name!"
             }
         }
+        labels = {
+            "comment_author": "Name",
+            "comment_content": "Comment",
+        }
         widgets = {
             "comment_author": forms.TextInput(attrs={
                 # "class": "comment-author-input",

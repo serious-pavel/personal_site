@@ -196,3 +196,23 @@ input#id_comment_author:focus {
 .container-button-add:active {
   background-image: url("../img/book-plus-line-svgrepo-com-active.svg");
 }
+
+.errorlist {
+  list-style: none;
+}
+
+.errorlist ul {
+  margin: 0;
+}
+
+.error-container {
+  margin: 10px auto auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ab5937;
+  background-color: rgb(143 0 255 / 22%);
+  font-style: italic;
+  font-weight: 500;
+  max-width: 600px;
+}
